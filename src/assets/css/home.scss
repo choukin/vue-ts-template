@@ -1,0 +1,150 @@
+$version: "1.2.3";
+/*
+this comment is for homde#{$version}
+*/
+.home{
+    width: 97%;
+  
+    p, div {
+      font-size: 2em;
+      a { font-weight: bold; }
+    }
+  
+    pre { font-size: 3em; }
+    a {
+      font-weight: bold;
+      text-decoration: none;
+      &:hover { text-decoration: underline; }
+      body.firefox & { font-weight: normal; }
+    }
+  }
+  .funky {
+    font: {
+      family: fantasy;
+      size: 30em;
+      weight: bold;
+    }
+  }
+  p {
+    font: 10px/8px;             // Plain CSS, no division
+    $width: 1000px;
+    width: $width/2;            // Uses a variable, does division
+    width: round(1.5)/2;        // Uses a function, does division
+    height: (500px/2);          // Uses parentheses, does division
+    margin-left: 5px + 8px/2px; // Uses +, does division
+  }
+@mixin firefox-message($selector){
+  body.fireox #{$selector}:before{
+    content:'Hi, firefox users';
+    width: 1in + 8pt;
+  }
+}
+$translucent-red: rgba(255, 0, 0, 0.5);
+p {
+  color: opacify($translucent-red, 0.3);
+  background-color: transparentize($translucent-red, 0.25);
+  width: 1em + (2em * 3)
+}
+
+$name:foo;
+$attr:border;
+p.#{$name}{
+  $font-size: 12px;
+  $line-height: 30px;
+  #{$attr}-color:blue;
+  font: #{$font-size}/#{$line-height};
+}
+.foo.bar .baz.bang, .bip.qux {
+  $selector: &;
+}
+@mixin does-parent-exist {
+  @if & {
+    &:hover {
+      color: blue;
+    }
+  } @else {
+    a {
+      color: red;
+    }
+  }
+}
+.header{
+@include does-parent-exist;
+}
+@include does-parent-exist;
+@include firefox-message(".header");
+
+$content:'first content';
+
+
+.sidebar {
+  width: 300px;
+  @media screen and (orientation: landscape) {
+    width: 500px;
+  }
+}
+@media screen {
+  .sidebar {
+    @media (orientation: landscape) {
+      width: 500px;
+    }
+  }
+}
+
+#context a%extreme {
+  color: blue;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.notice {
+  @extend %extreme;
+}
+a.important {
+  @extend .notice !optional;
+}
+
+$type: monster;
+p {
+  @if $type == ocean {
+    color: blue;
+  } @else if $type == matador {
+    color: red;
+  } @else if $type == monster {
+    color: green;
+  } @else {
+    color: black;
+  }
+}
+
+@mixin large-text {
+  font: {
+    family: Arial;
+    size: 20px;
+    weight: bold;
+  }
+  color: #ff0000;
+}
+.page-title {
+  @include large-text;
+  padding: 4px;
+  margin-top: 10px;
+}
+@mixin silly-links {
+  a {
+    color: blue;
+    background-color: red;
+  }
+}
+@include silly-links;
+
+@mixin apply-to-ie6-only{
+  * html {
+    @content;
+  }
+}
+@include apply-to-ie6-only{
+  #logo{
+    background-color: #ff0000
+  }
+}

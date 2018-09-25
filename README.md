@@ -2,6 +2,10 @@
 
 ## 参考链接
 - https://www.imooc.com/article/47096
+- [tslint](https://palantir.github.io/tslint/rules/)
+- [查询用户](https://developer.github.com/v3/search/#search-users) 
+
+
 ## Project setup
 ```
 yarn install

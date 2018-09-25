@@ -11,7 +11,7 @@ const axiosConfig: AxiosRequestConfig = {
         return qs.stringify(params)
     },
     // 设置超时时间
-    timeout: 4000,
+    timeout: 80000,
     withCredentials: true, // 允许携带cookie
     responseType: 'json',
     // xsrf 设置
