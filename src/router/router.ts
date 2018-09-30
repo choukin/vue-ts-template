@@ -27,5 +27,21 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "render" */ '@/views/demos/render.vue'),
     },
+    {
+      path: '/emit',
+      name: 'emit',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "emit" */ '@/views/demos/emit.vue'),
+    },
+    {
+      path: '/slot',
+      name: 'slot',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "slot" */ '@/views/demos/slot.vue'),
+    },
   ],
 });

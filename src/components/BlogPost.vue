@@ -1,6 +1,7 @@
 <template>
     <div class="blog-post">
         <h3>{{post.title}}</h3>
+        <span v-show="isPublished">publicshed</span>
         <button @click="$emit('enlarge-text', 0.2)">enlarge text</button>
         <div v-html="post.content"></div>
     </div>
@@ -11,5 +12,6 @@
     @Component
     export default class BlogPost extends Vue {
         @Prop() private post!: Post
+        @Prop() private isPublished!: boolean
     }
 </script>

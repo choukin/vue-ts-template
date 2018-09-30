@@ -139,14 +139,28 @@
     v-for="post in posts"
     :key="post.id"
     :post="post"
+    v-bind="post"
     @enlarge-text="onEnlargeText"
+    isPublished="false"
 />
 </div>
 <br>
 <CustomInput
 v-model="searchText"/>
 <br>
-<template v-if="loginType=== 'username'">
+
+<alert-box><div>Something bad happend</div></alert-box>    
+<br>
+<BaseInput
+    v-model="username"
+    class="username-input"
+    placeholder="Enter your username"
+    v-bind:label="'username'"
+/>
+<br>
+<br>
+<br>
+<!-- <template v-if="loginType=== 'username'">
     <label for="username">username</label>
     <input type="text" placeholder="Enter you username" key="username-input">
 </template>
@@ -154,7 +168,7 @@ v-model="searchText"/>
     <label for="email">Email</label>
     <input type="text" placeholder="Enter your address" key="email-input">
 </template>
-<button @click="toggle">Toggle login type</button>
+<button @click="toggle">Toggle login type</button> -->
 
 
 </div>
@@ -168,6 +182,8 @@ import simpleTodoItem from '@/components/stodoitem.vue';
 import ButtonCounter from '@/components/ButtonCounter.vue'
 import BlogPost from '@/components/BlogPost.vue'
 import CustomInput from '@/components/CustomInput.vue'
+import AlertBox from '@/components/AlertBox.vue'
+import BaseInput from '@/components/BaseInput.vue'
 import Post from '@/model/Post'
 import _ from 'lodash'
 import axios from 'axios'
@@ -179,9 +195,13 @@ import gitHubAPI, {SearchUser} from '@/common/api/githubapi'
       ButtonCounter,
       BlogPost,
       CustomInput,
+      'alert-box': AlertBox,
+      BaseInput,
     },
 })
 export default class Render extends Vue {
+    private username: string = ''
+    private isPublished: boolean = true
     private searchText: string = ''
     private postFontSize: number = 1
     private posts: Post[] = [
