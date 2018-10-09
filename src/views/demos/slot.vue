@@ -5,7 +5,7 @@
         </template>
 
         <template slot="footer">
-            <p>here's some contact</p>
+            <p>here's some contact test</p>
         </template>
     </baselayout>
 </template>
