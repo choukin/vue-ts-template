@@ -7,12 +7,12 @@ const axiosConfig: AxiosRequestConfig = {
       return data
     }],
     // 查询对象序列化
-    paramsSerializer: (params: any) => {
-        return qs.stringify(params)
+    paramsSerializer: (param: any) => {
+        return qs.stringify(param)
     },
     // 设置超时时间
     timeout: 80000,
-    withCredentials: true, // 允许携带cookie
+    withCredentials: true, // 允许携带cookie boolean
     responseType: 'json',
     // xsrf 设置
     xsrfCookieName: 'XSRF-TOKEN',
