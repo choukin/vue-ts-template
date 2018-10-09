@@ -4,7 +4,7 @@
         鼠标悬停几秒查看时间
     </span>
     <p>{{msg}}</p>
-    <button v-on:click="reverseMessage">逆转消息</button>
+    <button v-on:click="reverseMessage">逆转消息1</button>
     <p>{{reverseMsg}}</p>
     <p>{{inputMsg}}</p>
     <input type="text" v-model="inputMsg">
@@ -18,7 +18,6 @@
         >
         </TodoItem>
     </ol>
-
         <input type="text" v-model="question">
         <p>{{answer}}</p>
         <img :src="this.avatar_url" alt="">
