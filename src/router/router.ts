@@ -51,5 +51,29 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "dynamic" */ '@/views/demos/dynamic-component.vue'),
     },
+    {
+      path: '/inject',
+      name: 'inject',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "inject" */ '@/views/demos/inject.vue'),
+    },
+    {
+      path: '/transition1',
+      name: 'transition1',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "transition1" */ '@/views/demos/transition/demo1.vue'),
+    },
+    {
+      path: '/velocity',
+      name: 'velocity',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "transition1" */ '@/views/demos/transition/velocity.vue'),
+    },
   ],
 });

@@ -3,17 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e"
   },
   "dependencies": {
-    "@types/qs": "^6.5.1",
+    "animate.css": "^3.7.0",
     "axios": "^0.18.0",
+    "gsap": "^2.0.2",
+    "lodash": "^4.17.11",
     "mint-ui": "^2.2.13",
     "qs": "^6.5.2",
+    "velocity-animate": "^2.0.5",
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",
@@ -23,7 +26,10 @@
   },
   "devDependencies": {
     "@types/chai": "^4.1.0",
+    "@types/gsap": "^1.19.2",
     "@types/mocha": "^5.2.4",
+    "@types/qs": "^6.5.1",
+    "@types/velocity-animate": "^1.2.33",
     "@vue/cli-plugin-babel": "^3.0.3",
     "@vue/cli-plugin-e2e-cypress": "^3.0.3",
     "@vue/cli-plugin-typescript": "^3.0.3",
